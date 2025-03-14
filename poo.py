@@ -79,3 +79,71 @@ library.register_user(User3)
 
 
 
+class Persona:
+    def __init__(self,nombre,edad):
+        self.nombre = nombre
+        self.edad = edad
+    def saludar(self):
+        return f"Hola, mi nombre es {self.nombre} y tengo {self.edad} años"
+
+
+persona1= Persona("Alice",25)
+persona2= Persona("Bob",30)
+
+
+print(persona1.saludar())
+print(persona2.saludar())
+
+
+#paradigmas de programacion
+#POO
+# ENCAPSULAMIENTO
+
+import random
+
+class CuentaBancaria:
+    def __init__(self,titular,cuenta,saldo):
+        self,titular = titular
+        self.cuenta = cuenta
+        self.__saldo = saldo
+        self.cuentas =[]
+    
+    def crear_cuenta(self,titular,cuenta):
+        self.titular = titular
+        self.cuenta = cuenta
+
+        if cuenta:
+            self.cuenta = random.randint(1000,9999)
+            self.cuentas.append({
+            "titular":self.titular,
+            "cuenta":self.cuenta
+            })
+            if self.cuenta in self.cuentas:
+                print(f"Hola {self.titular}, ya tienes una cuenta con el numero {self.cuenta}")
+            else:
+                print(f"Se ha creado la cuenta {self.cuenta} a nombre de {self.titular}")
+            
+        else:
+            print("Digito una opcion invalida vuelva a intentarlo")
+    
+    def despositar(self,cantidad):
+        self.__saldo += cantidad
+        
+        print(f"Se han depositado {cantidad} a la cuenta {self.cuenta}")
+    
+    def retirar(self,cantidad):
+        if cantidad > self.__saldo:
+            print("Fondos insuficientes")
+        else:
+            self.__saldo -=cantidad
+            print(f"Se han retirado {cantidad} de la cuenta {self.cuenta}")
+
+
+
+
+       
+
+
+        print(f"Se ha creado la cuenta {self.cuenta} a nombre de {self.titular}")
+    
+
